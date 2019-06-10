@@ -23,6 +23,7 @@ html {
 }
 #intro video{
     width: 100vw;
+    visibility: hidden;
 }
 
 header {
