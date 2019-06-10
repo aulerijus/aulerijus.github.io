@@ -4,424 +4,438 @@
     <meta charset="utf-8">
     <title>DOM DOM</title>
     <style>
-        @font-face {
-        font-family: Arcon;
-        src: url('fonts/Arcon-Regular.otf');
+        ::-webkit-scrollbar { 
+            display: none; 
         }
-        @font-face {
-        font-family: Picadilly;
-        src: url('fonts/picadilly-bold.otf');
+        #element {
+            scrollbar-width: none;
         }
         
         html {
             -ms-overflow-style: none;
-            overflow-x: hidden;
-        }
-        header {
-            text-align: center;
-            position: relative;
-            z-index: 10;
-            width: 80vw;
-            left: 10vw;
         }
         body {
             font-size: 0;
             position: relative;
             margin: 0;
             position: absolute;
-            background-color: black;
         }
-        main {
-            position: relative;
-            background-color: black;
-            top: 0vw;
-            left: 15vw;
-            color: white;
-            font-family: sans-serif;
-            font-size: 1.3vw; 
-            width: 70vw;
-        }
-        .wide{
-            position: relative;
-            width: 100%;
-        }
-        .menu{
-            background-color: black;
-            text-align: center;
-            margin-top: -10px;
-            position: sticky;
-            top: -1px;
-            z-index: 10;
-            width: 100vw;
-            height:  5vw;
-            box-shadow: 0px 0px 1vw rgba(230, 255, 254, 0.27)
-        }
-        .menu h1{
-            display: inline-block;
-            color: white;
-            z-index: 20;
-            font-family: Picadilly;
-            height: 80%;
-            width: 20%;
-            font-size: 2vw;
-        }
-        .menu h1:hover{
-            text-shadow: 0vw 0vw 2vw #7dfcf7
-        }
-        .short_about {
-            position: relative;
-            top: -4vw;
-            left: 0;
-            height: 40vw;
-            width: 100%;
-        }
-        .short_about p{
-            text-align: justify;
-            position: relative;
-            margin: auto;
-            width: 40%;
-            top: 38%;
-            z-index: 6;
-            font-family: Arcon;
-        }
-        .short_about h1 {
-            text-align: center;
-            position: relative;
-            width: 100%;
-            top: 35%;
-            z-index: 6;
-            font-family: Picadilly;
-            font-size: 2vw;
-        }
-        .short_about video{
-            position: absolute;
-            top: 0px;
-        }
-        .domai {
-            position: relative;
-            left: 0;
-            height: 46.3vw;
-            margin-bottom: 1vw;
-            width: 100%;
-        }
-        .domai:after{
+        body::before {
+            animation-duration: 30s;
+            animation-name: huerotate;
+            animation-iteration-count: infinite;
             content: "";
-            display: block;
             position: absolute;
-            top: 0;
-            height: 6vw;
-            width: 100%;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0));
-            z-index: 9;
-        }
-        .domai p {
-            position: relative;
-            width: 32%;
-            top: 15%;
-            left: 56%;
-            z-index: 6;
-            font-family: Arcon;
-        }
-        .domai h1 {
-            position: relative;
-            width: 38%;
-            top: 15%;
-            left: 56%;
-            z-index: 6;
-            font-family: Picadilly;
-        }
-        .domai h2 {
-            position: relative;
-            width: 38%;
-            top: 12%;
-            left: 56%;
-            z-index: 6;
-            font-family: Picadilly;
-        }
-        .domai video{
-            position: absolute;
-            top: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .domai img{
-            position: absolute;
-            top: 0;
-            height: 100%;
-            width: 100%;
-        }
-        .controls{
-            position: absolute;
-            bottom: 15%;
-            left 0;
-            height: 20%;
-            width: 100%;
-            z-index: 5;
-        }
-        .slider{
-            -webkit-appearance: none;
-            position: absolute;
-            top: 95%;
-            width: 66%;
-            left: 15%;
-            z-index: 6;
-            height: 0.33vw;
-            outline: none;
-            opacity: 1;
-            background-color: gray;
-        }
-        .slider:after{
-            content:'';
-            display: block;
-            position: relative;
-            left: 10%;
-            bottom: 200%;
-            width: 3vw;
-            height: 3vw;
-            margin-left: -6%;
-            background: url('rotate.svg');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.5;
-            z-index: 5;
-        }
-        .slider::-webkit-slider-thumb{
-            -webkit-appearance: none;
-            appearance: none;
-            width: 2vw;
-            height: 2vw;
-            background: url('diamond.svg');
-            background-position: center;
-            background-size: contain;
-            cursor: pointer;
-            opacity: 1;
-        }
-        input[type=checkbox]{
-            opacity: 0;
-            width: 0;
-            height: 0;
-            margin: auto; 
-        }
-        .switch{
-            position: relative;
-            display: block;
-            top: 72%;
-            left: 64%;
-            z-index: 7;
-            width: 3vw;
-            height: 0.8vw;
-            transform: rotate(-90deg);
-            z-index: 5;
-        }
-        .switch_slider {
-            position: absolute;
-            cursor: pointer;
-            outline: none;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: gray;
-            -webkit-transition: .4s;
-            transition: .4s;
-            z-index: 5;
-        }
-        .switch_slider:before {
-          position: absolute;
-          content: "";
-          width: 2vw;
-            height: 2vw;
-          left: -0.6vw;
-            top: -0.6vw;
-            background-color: white;
-            background-position: center;
+            background-attachment: fixed;
+            background-image: url(prezentacija/back2.jpg);
             background-repeat: no-repeat;
             background-size: cover;
-            clip-path: polygon(42% 0, 58% 0, 100% 42%, 100% 58%, 58% 100%, 42% 100%, 0 58%, 0 42%);
-            -webkit-clip-path: polygon(42% 0, 58% 0, 100% 42%, 100% 58%, 58% 100%, 42% 100%, 0 58%, 0 42%);
-            -webkit-transition: .4s;
-            transition: .4s;
+            width: 100%; height: 100%;
+            z-index: -2;
+        }
+        @keyframes huerotate {
+            0% {
+                filter: hue-rotate(0deg);
+                animation-timing-function: steps(120);
+            }
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+        main{
+            position: relative;
+        }
+        .sidefill{
+            content: "";
+            position: fixed;
+            height: 100vh;
+            width: 1%;
+            background-color: black;
+            z-index: -1;
+        }
+        .grid_4 {
+            background-color: black;
+            background-clip: border-box;
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            grid-column-gap: 1.2%;
+            padding: 1.2%;
+            padding-bottom: 5%;
+            margin-bottom: -1px;
+        }
+        .grid_3 {
+            background-color: black;
+            background-clip: border-box;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-column-gap: 2%;
+            padding: 6%;
+            padding-bottom: 5%;
+            margin-bottom: -1px;
+        }
+        .grid_split{
+            font-size: 10;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            padding-bottom: 0;
+            width: 100%;
             z-index: 5;
         }
-        input[type=checkbox]:checked + .switch_slider {
-            background-color: white;
+        .grid_split_left {
+            height: 100%;
+            width: 46.87%;
+            background-color: black;
+            padding-right: 1%;
+            background-clip: padding-box;
+            justify-self: right;
+            margin-bottom: -1px;
         }
-        input[type=checkbox]:checked + .switch_slider:before {
-        background-image: url(fill.gif);
-          transform: translateX(2vw);
+        .grid_split_right {
+            justify-self: left;
+            width: 100%;
+            margin-bottom: -1px;
         }
-        .controls input[type=button]{
-            background-color: transparent;
-            border: none;
+        .grid_split::after {
+            content: "";
+            position: absolute;
+            height: 140vw;
+            width: 51%;
+            background-color: black;
+            justify-self: left;
+            z-index: -1;
+        }
+        .nested_click {
+            width: 100%;
+            margin-bottom: -1px;
             cursor: pointer;
-            text-decoration: none;
-            background-image: url(more.svg);
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            position: relative;
-            display: block;
-            top: 62%;
-            left: 80%;
-            z-index: 7;
-            width: 4vw;
-            height: 2vw;
         }
-
+        .nested_click:hover{
+            filter: brightness(130%);
+        }
+        .nested{
+            width: 100%;
+            margin-bottom: -1px;
+            cursor: default;
+        }
+        }
+        .slidejump {
+            margin-bottom: -1px;
+        }
+        .wide {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            margin-bottom: -1px;
+            opacity: 50%;
+            cursor: default;
+            
+        }
+        .widepadded {
+            background-color: black;
+            background-clip: border-box;
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            padding-bottom: 5%;
+            margin: 0;
+            margin-bottom: -1px;
+            cursor: default;
+        }
+        .simplediv{
+            background-color: black;
+            text-align: center;
+            background-clip: padding-box;
+            padding-bottom: 20vw;
+            margin-bottom: -1px;
+        }
+        .text {
+            color: #ff0000;
+            font-size: 72px;   
+            margin: 0px;  
+        }
+        .fade {
+            background-color: black;
+            background-clip: border-box;
+            overflow: auto;
+            width: 100vw;
+            height: 56.25vw;
+            margin-bottom: -1px;
+        }
+        .fade * { 
+            display: inline-block;
+            object-fit: contain;
+            position: absolute;
+            width: 95%;
+            padding: 2.5%;
+            transition: opacity 1s ease-in-out;
+            margin-top: -6%;
+            cursor: pointer;
+            
+        }
+        .fade *.transparent {
+            opacity: 0;
+        }
         
     </style>
 </head>
 <body>
-<header>
-    <video class="wide on" id="pata_on" autoplay loop muted>
-        <source src="2line%20logo%20loop.mp4" type="video/mp4">
-    </video>
-</header>
-    
-<div class="menu">
-    <h1>apie</h1><h1>DOMai</h1><h1>kontaktai</h1>
-</div>
-
-
-<main>
-    <div class="short_about">
-        <video class="wide on" id="pata_on" autoplay loop muted>
-            <source src="about%20back.mp4" type="video/mp4">
+    <!-- tests -->
+    <div><!--
+     <button id="debug" class="text" name="debug" style="position: fixed; right: 0;">debug</button>
+        
+    <div id="logo" >
+        <video class="logopart" id="logopart1" muted>
+            <source src="prezentacija/logo/logo%20glow%20split%201.mp4" type="video/mp4">
         </video>
-        <h1>DOM DOM - magiškų meninių šviesos instaliacijų gentis</h1>
-        <p>
-        Šios genties paslaptingos būtybės - Domai, veikia kaip pranašai, žyniai, dievybės, elementų ir gamtos jėgų įsikūnijimai.<br>
-        <br>
-        Domai atgyja ir materializuojasi į fizinį pasaulį retai, tik tam tikrų aplinkybių metu, tad išvysti viena jų savomis akimis yra įsirėžianti patirtis.
-        </p>
+        <video class="logopart" id="logopart2" autoplay loop muted >
+            <source src="prezentacija/logo/logo%20glow%20split%202.mp4" type="video/mp4">
+        </video>
+        <video class="logopart" id="logopart3" autoplay loop muted style="opacity: 0.6;">
+            <source src="prezentacija/logo/logo%20glow%20split%203.mp4" type="video/mp4">
+        </video>
+        <video class="logopart" id="logopart4" autoplay loop muted>
+            <source src="prezentacija/logo/logo%20glow%20split%204.mp4" type="video/mp4">
+        </video>
+        <video class="logopart" id="logopart5" autoplay loop muted>
+            <source src="prezentacija/logo/logo%20glow%20split%205.mp4" type="video/mp4">
+        </video>
+        <video class="logopart" id="logopart6" autoplay loop muted>
+            <source src="prezentacija/logo/logo%20glow%20split%206.mp4" type="video/mp4">
+        </video>
+        <img src="prezentacija/logo/clip-01.svg" class="logopart" onmouseover="hovertest()" style="opacity: 0.3; clip-path: url(#svgPath);">
     </div>
-    <div class="domai">
-        <video class="wide on" id="pata_on" muted style="z-index: 2; opacity: 0;">
-            <source src="2017_on.mp4" type="video/mp4">
+        
+    <svg width="0" height="0">
+            <clipPath id="svgPath">
+                <path d="M64,40.38a1.92,1.92,0,0,1,2.82-1.79l20.27,8.32a14.57,14.57,0,0,1,4.58,3.3l29.66,34.46a10,10,0,0,1,2.06,5.1l1.22,20.65a4.57,4.57,0,0,1-2.47,4.09l-13.92,6.29a16,16,0,0,1-5.54,1.2H62.9a2.74,2.74,0,0,1-2.76-2.9Z"/>
+            </clipPath>
+    </svg>
+        
+    
+    <div id="cliptestdiv">
+        <video  class="cliptest" onclick="this.paused ? this.play() : this.pause();" muted
+               style="clip-path: inset(0% 66.7% 50% 0%);
+                right: -20% 
+                ">
+            <source src="prezentacija/first%20MAIN.mp4" type="video/mp4">
+        </video>
+        <video class="cliptest" id="testvid" onclick="this.paused ? this.play() : this.pause();" muted
+               style="clip-path: inset(0% 33.3% 50% 33.3%);
+                left: 0%
+                ">
+            <source src="prezentacija/first%20MAIN.mp4" type="video/mp4">
+        </video>
+        <video class="cliptest" onclick="this.paused ? this.play() : this.pause();" muted
+               style="clip-path: inset(0% 0% 50% 66.7%);
+                left: -20%
+                ">
+            <source src="prezentacija/first%20MAIN.mp4" type="video/mp4">
         </video>
         
-        <video class="wide info" id="pata_rotate" muted style="z-index: 1">
-            <source src="2017_rotate.mp4" type="video/mp4">
+    </div>
+    
+    -->
+    </div>
+
+    <main id="main">
+    <div class="sidefill"></div>
+    <div class="sidefill" style="right:0"></div>
+        
+     <!-- slides -->
+    <a href="#slide2" class="slidejump">
+        <img id="slide1" class="wide" src="prezentacija/slide 1.svg"> </a>
+        
+    <a href="#slide3" class="slidejump">
+        <img id="slide2" class="wide" src="prezentacija/slide 2.svg"> </a>
+        
+    <!-- all projections -->      
+    <div class="grid_4">
+        <video class="nested_click" onclick="this.paused ? this.play() : this.pause();" muted>
+            <source src="prezentacija/first%20MAIN.mp4" type="video/mp4">
+        </video>
+        <video class="nested_click" onclick="this.paused ? this.play() : this.pause();" muted>
+            <source src="prezentacija/2017%20MAIN.mp4" type="video/mp4">
+        </video>
+        <video class="nested_click" onclick="this.paused ? this.play() : this.pause();" muted>
+            <source src="prezentacija/2018%20MAIN.mp4" type="video/mp4">
+        </video>
+        <video class="nested_click" onclick="this.paused ? this.play() : this.pause();" muted>
+            <source src="prezentacija/nowjapan%20MAIN.mp4" type="video/mp4">
+        </video>  
+    </div>
+        
+    <a href="#slide4" class="slidejump">
+        <img id="slide3" class="wide" src="prezentacija/slide 3.svg"> </a> 
+        
+    <a href="#slide5" class="slidejump">
+        <img id="slide4" class="wide" src="prezentacija/slide 4.svg"></a>
+        
+    
+    <a href="#slide6" class="slidejump">
+    <img id="slide5" class="wide" src="prezentacija/slide 5.svg"></a>
+    <!-- nuostatos
+    
+    <div class="grid_split">
+        <img src="prezentacija/nuostata1.jpg" class="grid_split_left">
+        <img src="prezentacija/slide 5.1.svg" class="grid_split_right">
+        <div style="height: 10vw; margin-bottom: -1px;"></div><div style="height: 10vw; background-color: black; margin-bottom: -1px;"></div>
+        
+        <img src="prezentacija/nuostata2.jpg" class="grid_split_left">
+        <img src="prezentacija/slide%205.2.svg" class="grid_split_right">
+        <div style="height: 10vw; margin-bottom: -1px;"></div><div style="height: 10vw; background-color: black; margin-bottom: -1px;"></div>
+        
+        <video class="grid_split_left" autoplay loop muted>
+            <source  src="prezentacija/nuostata3.mp4" type="video/mp4">
         </video> 
+        <img src="prezentacija/slide 5.3.svg" class="grid_split_right">
+        <div style="height: 10vw; margin-bottom: -1px;"></div><div style="height: 10vw; background-color: black; margin-bottom: -1px;"></div>
         
-        <input id="view" type="range" class="slider"  min="0" max="1" value="1" step="0.02">
+        <img src="prezentacija/nuostata4.jpg" class="grid_split_left">
+        <img src="prezentacija/slide%205.4.svg" class="grid_split_right">
+        <div style="height: 10vw; margin-bottom: -1px;"></div><div style="height: 10vw; background-color: black; margin-bottom: -1px;"></div>
         
-        <div class="controls">
-            <label class="switch">   
-                <input type="checkbox" id="activate"> 
-                <span class="switch_slider"></span>
-            </label>
-            
-            <input type="button" id="more">
-        </div>
-        
-        <h1 id="pavadinimas">PataDomas</h1>
-        <p> Šis Domas yra mus supančių gamtos ir visatos jėgų fizinė manifestacija, jų balsas. Įsiklausyk, išgirsk, nes mes kiekvienas esame tos gamtos dalis.<br>
-        <br>
-        PataDomas apsireiškia trijų skirtingų energijų formomis, kiekviena skelbia išmintį savu kampu. Kuri apsireikš prieš jį atsisijojus tau? Tai priklauso nuo to, kokį žmogų tavyje PataDomas pamatys.</p>
     </div>
+`    -->
+        
+    <a href="#slide7" class="slidejump">
+    <img id="slide6" class="wide" src="prezentacija/slide 6.svg"></a> 
     
-    <div class="domai" style = "z-index: 0;">
-        <img id="kabukidomas" class="domai" src="2018_base.jpg"><br>
-        <input id="view" type="range" class="slider"  min="0" max="1" value="1" step="0.02">
-        
-        <div class="controls">
-            <label class="switch">   
-                <input type="checkbox" id="activate"> 
-                <span class="switch_slider"></span>
-            </label>
-            
-            <input type="button" id="more">
-        </div>
-        
-        <h1 id="pavadinimas"> AsiDomas</h1>
-        
-        <p> Šis Domas apsireiškia tik euforiškų emocijų ir patirčių apsuptyje. Jis priešingai nei jo broliai neegzistuoja tam kad kažką įrodytų, kažką pakeistų, jis tiesiog yra.<br>
-        <br>
-        AsiDomas gali būti aptiktas įvairaus jo egzistavimo fazių metu. Jis tausoja gerus dalykus, juos pertraukdamas gilaus poilsio ir apmąstymo būtimi.</p>
-    </div>
+    <a href="#slide8" class="slidejump">
+    <img id="slide7" class="wide" src="prezentacija/slide 7.svg"></a>
     
-    <div class="domai">
-        <img id="kabukidomas" class="domai" src="nowjapan_base.jpg"><br>
-        <input id="view" type="range" class="slider"  min="0" max="1" value="1" step="0.02">
-        
-        <div class="controls">
-            <label class="switch">   
-                <input type="checkbox" id="activate"> 
-                <span class="switch_slider"></span>
-            </label>
-            
-            <input type="button" id="more">
-        </div>
-        
-        <h1 id="pavadinimas"> KabukiDomas</h1>
-        <h2> (Kartu su NowJapan)</h2> <img src="nowjapan.svg" style="position: absolute; top: 20%; left: 85%;width: 7%; height: 7%;z-index: 8;">
-        
-        <p> 
-            Šis Domo šaknys tęsiasi toli į rytus, iki pat Japonijoje slypinčių veikėjų.<br>
-            
-        <br><br>
-        KabukiDomas kiekvienam išdrysusiam prieiti ir prašyti žvilgsnio į ateitį atskleis japoniška trieile poema, kas to žmogaus laukia.</p>
-    </div>
+    <a href="#slide9" class="slidejump">
+    <img id="slide8" class="wide" src="prezentacija/slide 8.svg"></a>
     
-    <div class="domai">
-        <img id="kabukidomas" class="domai" src="first_base.jpg"><br>
-        <input id="view" type="range" class="slider"  min="0" max="1" value="1" step="0.02">
-        
-        <div class="controls">
-            <label class="switch">   
-                <input type="checkbox" id="activate"> 
-                <span class="switch_slider"></span>
-            </label>
-            
-            <input type="button" id="more">
-        </div>
-        
-        <h1 id="pavadinimas"> DumDomas</h1>
-        
-        <p> Šis Domas buvo pirmasis iš Domų, aplankiusių mūsų pasaulį.<br>
-        <br>
-            Stebint jį, susidaro įspūdis, kad jis siekia imituoti didingąjį PataDomą, tačiau iš jo burnos dažniausiai pasigirsta tik beprasmiai šūksniai ir emocijų proveržiai.
-        </p>
+    <!-- ranku darbo -->
+    <div class="simplediv">
+        <video autoplay loop muted style="height: 22vw; padding-right: 1.5%">
+            <source  src="prezentacija/ranku1.mp4" type="video/mp4">
+        </video> 
+        <img src="prezentacija/ranku2.jpg" style="height: 22vw; padding-left: 1.5%">
     </div>
         
-</main>
+    <!-- colors -->
+    <a href="#colors1-2" class="slidejump">
+    <img id="slide9" class="wide" src="prezentacija/slide 9.svg"></a>
+        
+    <div id="colors1-2" class="fade"> <!-- FADE -->
+        <video class="fadebottom" autoplay loop muted style="margin-bottom: 10px;">
+            <source src="prezentacija/colors2.mp4" type="video/mp4">
+        </video> 
+        <video class="fadetop" autoplay loop muted style="margin-bottom: 10px;">
+            <source src="prezentacija/colors1.mp4" type="video/mp4">
+        </video> 
+    </div>
+        
+    <div class="widepadded" style="background-color: black; text-align: center;">    
+        <video onclick="this.paused ? this.play() : this.pause();" muted style="width: 95%; cursor: pointer;">
+            <source src="prezentacija/colors3.mp4" type="video/mp4">
+        </video> 
+    </div>
+        
+    <a href="#slide11" class="slidejump">
+    <img id="slide10" class="wide" src="prezentacija/slide 10.svg"></a> 
     
+    <a href="#slide12" class="slidejump">
+    <img id="slide11" class="wide" src="prezentacija/slide 11.svg"></a>
+        
+    <video class="widepadded" autoplay loop muted>
+            <source src="prezentacija/hand%20touch.mp4" type="video/mp4">
+    </video>
+    <div class="wide" style="background-color: black; text-align: center;">
+        <video  onclick="this.paused ? this.play() : this.pause();" style="width: 80%; cursor: pointer;">
+                <source src="prezentacija/totem%20techpark.mp4" type="video/mp4">
+        </video>
+    </div>
+        
+        
+    <a href="#slide13" class="slidejump">
+    <img id="slide12" class="wide" src="prezentacija/slide 12.svg"></a>
+    
+    <!-- logos -->
+    <a href="#slide5" class="slidejump">
+        <img id="logos" class="wide" src="prezentacija/logos1.svg"> 
+        <img class="wide" src="prezentacija/logos2.svg">
+    
+        <!-- logo videos -->
+        <video class="widepadded" autoplay loop muted>
+            <source src="prezentacija/logo%20glow%20variants.mp4" type="video/mp4">
+        </video>
+        <video class="widepadded" autoplay loop muted>
+            <source src="prezentacija/projection%20render%20variants.mp4" type="video/mp4">
+        </video>
+        <video class="widepadded" autoplay loop muted>
+            <source src="prezentacija/logo%20box%20variants.mp4" type="video/mp4">
+        </video>
+        
+        <img class="widepadded" src="prezentacija/3d%20logos.jpg">
+        
+        <a href="#slide14" class="slidejump">
+        <img id="slide13" class="wide" src="prezentacija/slide 13.svg"></a>
+        
+        <a href="#slide15" class="slidejump">
+        <img id="slide14" class="wide" src="prezentacija/slide 14.svg"></a>
+        
+        <a href="grid_3" class="slidejump">
+        <img id="slide15" class="wide" src="prezentacija/slide 15.svg"></a>
+        
+        <div class="grid_3">
+            <img class="nested" src="prezentacija/2018_3d_1.jpg" style="cursor: default;">
+            <video class="nested_click" onclick="this.paused ? this.play() : this.pause();" muted>
+                <source src="prezentacija/2018%20MAIN.mp4" type="video/mp4">
+            </video>
+            <video class="nested_click" onclick="this.paused ? this.play() : this.pause();" muted>
+                <source src="prezentacija/2018forest.mp4" type="video/mp4">
+            </video> 
+        </div>
+        
+        <img id="slide16" class="wide" src="prezentacija/slide 16.svg">
+        
+        <a href="web/desktop.html">
+        <img src="prezentacija/website.svg" class="wide" style="cursor: pointer;"></a>
+    </div>
+    </main>
 </body>
+<script src="prezentacija/https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-var slide = document.getElementById("view");
-var debug = document.getElementById("pavadinimas");
-var pata_rotate = document.getElementById("pata_rotate");
-var pata_on = document.getElementById("pata_on");
-var activate = document.getElementById("activate");
+    var activator = document.getElementById('logoparttest');
+    var vid = document.getElementById('logopart1');
+  document.getElementById('colors1-2').onclick = () => {
+  };
+    
+    //fade 2 elements on click
+    $(document).ready(function() {
+      $(".fade").click(function() {
+        $(".fade *.fadetop").toggleClass("transparent");
+        return false;
+        });
+    });
+    
+    
+// page scrolling
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
 
-slide.oninput = function() {
-    pata_rotate.currentTime = map_range(this.value, 0, 1, 2, 0);
-    pata_on.currentTime = 0;
-    pata_on.style.opacity = 0;
-    activate.checked = false;
-}
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
 
-activate.onclick = function() {
-    if(activate.checked){
-        pata_on.play();
-        pata_on.style.opacity = 1;
-        slide.value = 1;  
-    }
-    else{
-        pata_rotate.currentTime = 0;
-        pata_on.style.opacity = 0;
-         
-    }
-}
+      // Store hash
+      var hash = this.hash;
 
-pata_on.addEventListener('ended',myHandler,false);
-    function myHandler(e) {
-        activate.checked = false;
-    }
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
 
-function map_range(value, low1, high1, low2, high2) {
-    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
-}
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+}); //
 </script>
 </html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="utf-8">
+    <title>DOM DOM</title>
+    
+    <link href="style.css" rel="stylesheet" type="text/css">
+    
+</head>
+<body>
+    
+<div id="intro">
+   <video id="intro_vid" accesskey=""autoplay>
+        <source src="logo%20intro%20web.mp4" type="video/mp4">
+    </video> 
+</div>
+    
+<header>
+    <video autoplay loop muted>
+        <source src="2line%20logo%20loop.mp4" type="video/mp4">
+    </video>
+</header>
+    
+<div class="menu">
+    <h1>apie</h1><h1>DOMai</h1><h1>kontaktai</h1>
+</div>
+
+
+<main>
+    <div id></div>
+    <div class="short_about">
+        <video autoplay loop muted>
+            <source src="about%20back.mp4" type="video/mp4">
+        </video>
+        <h1>DOM DOM - magiškų meninių šviesos instaliacijų gentis</h1>
+        <p>
+        Šios genties paslaptingos būtybės - Domai, veikia kaip pranašai, žyniai, dievybės, elementų ir gamtos jėgų įsikūnijimai.<br>
+        <br>
+        Domai atgyja ir materializuojasi į fizinį pasaulį retai, tik tam tikrų aplinkybių metu, tad išvysti viena jų savomis akimis yra įsirėžianti patirtis.
+        </p>
+    </div>
+
+    
+    <div class="domai">
+        <video id="pata_on" style="z-index: 2; opacity: 0;">
+            <source src=2017_on.mp4 type="video/mp4">
+        </video>
+        
+        <video id="pata_rotate" muted style="z-index: 1">
+            <source src="2017_rotate.mp4" type="video/mp4">
+        </video> 
+        <br>
+        <input id="view" type="range" class="slider"  min="0" max="1" value="1" step="0.1">
+        
+        <div class="info">
+            <h1 id="pavadinimas">PataDomas</h1>
+            <p> Šis Domas yra mus supančių gamtos ir visatos jėgų fizinė manifestacija, jų balsas. Įsiklausyk, išgirsk, nes mes kiekvienas esame tos gamtos dalis.<br>
+            <br>
+            PataDomas apsireiškia trijų skirtingų energijų formomis, kiekviena skelbia išmintį savu kampu. Kuri apsireikš prieš jį atsisijojus tau? Tai priklauso nuo to, kokį žmogų tavyje PataDomas pamatys.</p>
+            <div class="controls">
+                <label class="switch"> 
+                    <input type="checkbox" id="activate_pata"> 
+                    <span class="switch_slider"></span>
+                </label>
+                <input type="button" id="more">
+            </div>
+        </div>
+    </div>
+    
+    <div class="domai" style = "z-index: 0;">
+        <img id="kabukidomas" class="domai" src="2017_base.jpg"><br>
+        <input id="view" type="range" class="slider"  min="0" max="1" value="1" step="0.1">
+        
+        <div class="info">
+            <h1 id="pavadinimas"> AsiDomas</h1>
+
+            <p> Šis Domas apsireiškia tik euforiškų emocijų ir patirčių apsuptyje. Jis priešingai nei jo broliai neegzistuoja tam kad kažką įrodytų, kažką pakeistų, jis tiesiog yra.<br>
+            <br>
+            AsiDomas gali būti aptiktas įvairaus jo egzistavimo fazių metu. Jis tausoja gerus dalykus, juos pertraukdamas gilaus poilsio ir apmąstymo būtimi.</p>
+            <div class="controls">
+                <label class="switch"> 
+                    <input type="checkbox" id="activate"> 
+                    <span class="switch_slider"></span>
+                </label>
+                <input type="button" id="more">
+            </div>
+        </div>
+    </div>
+    
+    <div class="domai">
+        <img id="kabukidomas" class="domai" src="nowjapan_base.jpg"><br>
+        <input id="view" type="range" class="slider"  min="0" max="1" value="1" step="0.1">
+        
+        <div class="info">
+            <h1 id="pavadinimas"> KabukiDomas</h1>
+            <h2> (Kartu su NowJapan)</h2> <img src="nowjapan.svg" style="display: inline-block; relative; top: 5%; right: 10%;width: 16%; height: 16%;z-index: 8;">
+            <p> Šis Domo šaknys tęsiasi toli į rytus, iki pat Japonijoje slypinčių veikėjų.<br>
+            <br><br>
+            KabukiDomas kiekvienam išdrįsusiam prieiti ir prašyti žvilgsnio į ateitį atskleis japoniška trieile poema, kas to žmogaus laukia.</p>
+            <div class="controls">
+                <label class="switch"> 
+                    <input type="checkbox" id="activate"> 
+                    <span class="switch_slider"></span>
+                </label>
+                <input type="button" id="more">
+            </div>
+        </div>
+    </div>
+    
+    <div class="domai">
+        <img id="kabukidomas" class="domai" src="first_base.jpg"><br>
+        <input id="view" type="range" class="slider"  min="0" max="1" value="1" step="0.1">
+        
+        <div class="info">        
+            <h1 id="pavadinimas"> DumDomas</h1>
+
+            <p> Šis Domas buvo pirmasis iš Domų, aplankiusių mūsų pasaulį.<br>
+            <br>
+                Stebint jį, susidaro įspūdis, kad jis siekia imituoti didingąjį PataDomą, tačiau iš jo burnos dažniausiai pasigirsta tik beprasmiai šūksniai ir emocijų proveržiai.
+            </p>
+            <div class="controls">
+                <label class="switch"> 
+                    <input type="checkbox" id="activate"> 
+                    <span class="switch_slider"></span>
+                </label>
+                <input type="button" id="more">
+            </div>
+        </div>
+    </div>
+        
+</main>
+    
+</body>
+<script>
+var slide = document.getElementById("view");
+var debug = document.getElementById("pavadinimas");
+var pata_rotate = document.getElementById("pata_rotate");
+var pata_on = document.getElementById("pata_on");
+var activate = document.getElementById("activate_pata");
+    
+var intro_vid = document.getElementById("intro_vid");
+var intro = document.getElementById("intro");
+
+slide.oninput = function() {
+    pata_rotate.currentTime = map_range(this.value, 0, 1, 2, 0);
+    pata_on.currentTime = 0;
+    pata_on.style.opacity = 0;
+    activate.checked = false;
+}
+
+activate.onclick = function() {
+    if(activate.checked){
+        pata_on.play();
+        pata_on.style.opacity = 1;
+        slide.value = 1;  
+    }
+    else{
+        pata_rotate.currentTime = 0;
+        pata_on.style.opacity = 0;
+    }
+}
+
+pata_on.addEventListener('ended',myHandler,false);
+    function myHandler(e) {
+        activate.checked = false;
+        pata_on.style.opacity = 0;
+}
+var callOnce = true;
+intro_vid.addEventListener('timeupdate',myHandler2,false);
+    function myHandler2(e) {
+    if((intro_vid.currentTime > 3) && callOnce){
+        intro.style.opacity = 0;
+        callOnce = false;
+    }
+}
+intro_vid.addEventListener('ended',myHandler3,false);
+    function myHandler3(e) {
+    intro.style.visibility = "hidden";
+}
+
+
+function map_range(value, low1, high1, low2, high2) {
+    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+}
+</script>
+</html>

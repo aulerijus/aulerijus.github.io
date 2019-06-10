@@ -1,0 +1,334 @@
+@font-face {
+font-family: Arcon;
+src: url('fonts/Arcon-Regular.otf');
+}
+@font-face {
+font-family: Picadilly;
+src: url('fonts/picadilly-bold.otf');
+}
+
+html {
+    -ms-overflow-style: none;
+    overflow-x: hidden;
+}
+#intro{
+    background-color: black;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    transition: opacity 0.7s;
+    transition-delay: visibility 0.8s;
+    z-index: 50;
+}
+#intro video{
+    width: 100vw;
+}
+
+header {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    width: 80vw;
+    left: 10vw;
+}
+header video{
+    width: 100%;
+}
+body {
+    font-size: 0;
+    position: relative;
+    margin: 0;
+    position: absolute;
+    background-color: black;
+}
+@keyframes huerotate {
+    0% {
+        filter: hue-rotate(0deg);
+        animsation-timing-function: steps(120);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+main {
+    position: relative;
+    background-color: black;
+    top: 0vw;
+    color: white;
+    font-family: sans-serif;
+    font-size: 1.1vw; 
+    width: 100vw;
+}
+.wide{
+    position: relative;
+    width: 100%;
+}
+.menu{
+    background-color: black;
+    text-align: center;
+    margin-top: -10px;
+    position: sticky;
+    top: -1px;
+    z-index: 10;
+    width: 100vw;
+    height:  3vw;
+    box-shadow: 0px 0px 1vw rgba(230, 255, 254, 0.27)
+}
+.menu h1{
+    display: inline-block;
+    color: #909090;
+    z-index: 20;
+    font-family: Picadilly;
+    height: 80%;
+    width: 20%;
+    font-size: 1.2vw;
+}
+.menu h1:hover{
+    text-shadow: 0vw 0vw 2vw #7dfcf7;
+    color: white;
+    cursor: pointer;
+}
+.short_about {
+    position: relative;
+    top: -4vw;
+    left: 0;
+    height: 40vw;
+    width: 100%;
+}
+.short_about p{
+    text-align: justify;
+    position: relative;
+    margin: auto;
+    width: 40%;
+    top: 38%;
+    z-index: 6;
+    font-family: Arcon;
+}
+.short_about h1 {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    top: 35%;
+    z-index: 6;
+    font-family: Picadilly;
+    font-size: 2vw;
+}
+.short_about video{
+    position: absolute;
+    top: 0px;
+    width: 100%;
+}
+.domai {
+    --contentwidth: 80;
+    background-color: rgb(8,8,8);
+    padding-right: calc(100% - var(--contentwidth)*1%);
+    padding-left: 0%;
+    position: relative;
+    left: 0;
+    right: 0;
+    height: calc(var(--contentwidth)*0.5vw);
+    margin-bottom: 1vw;
+    width: calc(var(--contentwidth)*1%);
+}
+.domai:after{
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 8vw;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 88%, rgba(0,0,0,0.7) 100%);
+    z-index: 3;
+}
+.domai:before{
+    content: "";
+    position: absolute;
+    display: block;
+    background-clip: content-box;
+    width: calc(var(--contentwidth)*1%);
+    left: 0%;
+    top: 0;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(8,8,8,0.4) 0%, rgba(8,8,8,0) 22%, rgba(8,8,8,0) 58%, rgba(8,8,8,1) 100%);
+    z-index: 2;
+}
+.domai video{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: calc(var(--contentwidth)*1%);
+    transition: opacity 1.5s;
+}
+.domai img{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: calc(var(--contentwidth)*1%);
+
+}
+.info{
+    position: absolute;
+    top: 12%;
+    left: 55%;
+    height: 65%;
+    width: 25%;
+    z-index: 5;
+}
+.info p {
+    position: relative;
+    width: 100%;
+    top: 4%;
+    left: 0%;
+    z-index: 6;
+    font-family: Arcon;
+}
+.info h1 {
+    position: relative;
+    top: 0%;
+    left: 0%;
+    z-index: 6;
+    margin-bottom: 1%;
+    font-family: Picadilly;
+}
+.info h2 {
+    position: relative;
+    display: inline;
+    margin-top: 1%;
+    top: 0%;
+    left: 0%;
+    z-index: 6;
+    font-family: Picadilly;
+}
+.controls{
+    position: relative;
+    display: block;
+    top: 5%;
+    left: 0%;
+    height: 20%;
+    width: 100%;
+    z-index: 5;
+}
+.slider{
+    -webkit-appearance: none;
+    position: absolute;
+    top: 95%;
+    width: 50%;
+    left: 24%;
+    z-index: 6;
+    height: 0.3vw;
+    outline: none;
+    opacity: 1;
+    background-color: #555555;
+}
+.slider:after{
+    content:'';
+    display: block;
+    position: relative;
+    left: 8%;
+    bottom: 200%;
+    width: 2.5vw;
+    height: 2.5vw;
+    margin-left: -6%;
+    background: url('rotate.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.33;
+    z-index: 5;
+}
+.slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.5vw;
+    height: 1.5vw;
+    background: url('diamond.svg');
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+    opacity: 0.7;
+}
+.slider::-webkit-slider-thumb:hover{
+    filter: drop-shadow(0px 0px 7px rgba(125, 252, 247, 0.54));
+    opacity: 1;
+}
+input[type=checkbox]{
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: auto; 
+}
+.switch{
+    position: absolute;
+    display: block;
+    top: 62%;
+    left: 10%;
+    z-index: 7;
+    width: 3vw;
+    height: 0.8vw;
+    z-index: 5;
+}
+.switch:hover{
+    filter: drop-shadow(0px 0px 5px rgba(125, 252, 247, 0.47));
+}
+.switch_slider {
+    position: absolute;
+    cursor: pointer;
+    outline: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: gray;
+    -webkit-transition: .4s;
+    transition: .4s;
+    z-index: 5;
+}
+.switch_slider:before {
+    position: absolute;
+    content: "";
+    width: 1.5vw;
+    height: 1.5vw;
+    left: -0.6vw;
+    top: -50%;
+    background-color: #bcbcbc;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    clip-path: polygon(42% 0, 58% 0, 100% 42%, 100% 58%, 58% 100%, 42% 100%, 0 58%, 0 42%);
+    -webkit-clip-path: polygon(42% 0, 58% 0, 100% 42%, 100% 58%, 58% 100%, 42% 100%, 0 58%, 0 42%);
+    -webkit-transition: .4s;
+    transition: .4s;
+    z-index: 5;
+}
+input[type=checkbox]:checked + .switch_slider {
+    filter: drop-shadow(0px 0px 7px rgba(125, 252, 247, 0.76));
+}
+input[type=checkbox]:checked + .switch_slider:before{
+    background-color: white;
+    transform: translateX(160%);
+}
+input[type=checkbox]:hover + .switch_slider:before{
+    background-color: white;
+}
+.info input[type=button]{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    background-image: url(more.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    display: block;
+    top: 50%;
+    right: 10%;
+    z-index: 7;
+    width: 4vw;
+    height: 2vw;
+    opacity: 0.7;
+}
+.info input[type=button]:hover{
+    opacity: 1;
+    filter: drop-shadow(0px 0px 7px rgba(125, 252, 247, 0.54));
+}
