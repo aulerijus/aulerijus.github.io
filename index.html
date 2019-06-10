@@ -126,7 +126,7 @@
             width: 100%;
             object-fit: contain;
             margin-bottom: -1px;
-            opacity: 50%;
+            margin-top: -1px;
             cursor: default;
             
         }
@@ -181,8 +181,8 @@
     </style>
 </head>
 <body>
-    <!-- tests -->
-    <div><!--
+    <!-- tests --><!--
+    <div>
      <button id="debug" class="text" name="debug" style="position: fixed; right: 0;">debug</button>
         
     <div id="logo" >
@@ -213,7 +213,6 @@
             </clipPath>
     </svg>
         
-    
     <div id="cliptestdiv">
         <video  class="cliptest" onclick="this.paused ? this.play() : this.pause();" muted
                style="clip-path: inset(0% 66.7% 50% 0%);
@@ -232,12 +231,9 @@
                 left: -20%
                 ">
             <source src="prezentacija/first%20MAIN.mp4" type="video/mp4">
-        </video>
-        
-    </div>
-    
-    -->
-    </div>
+        </video> 
+    </div> 
+    </div>-->
 
     <main id="main">
     <div class="sidefill"></div>
@@ -395,10 +391,9 @@
         
         <a href="web/desktop.html">
         <img src="prezentacija/website.svg" class="wide" style="cursor: pointer;"></a>
-    </div>
     </main>
 </body>
-<script src="prezentacija/https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
     var activator = document.getElementById('logoparttest');
     var vid = document.getElementById('logopart1');
