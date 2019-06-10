@@ -173,9 +173,9 @@ var intro = document.getElementById("intro");
 
 pata_slide.oninput = function() {
     pata_rotate.currentTime = map_range(this.value, 0, 1, 2, 0);
-    //pata_on.currentTime = 0;
-    //pata_on.style.opacity = 0;
-    //pata_activate.checked = false;
+    pata_on.currentTime = 0;
+    pata_on.style.opacity = 0;
+    pata_activate.checked = false;
 }
 asi_slide.oninput = function() {
     asi_rotate.currentTime = map_range(this.value, 0, 1, 2, 0);
@@ -203,8 +203,10 @@ pata_activate.onclick = function() {
         pata_slide.value = 1;  
     }
     else{
+        pata_slide.value = 1; 
         pata_rotate.currentTime = 0;
         pata_on.style.opacity = 0;
+        pata_on.pause();
     }
 }
 
