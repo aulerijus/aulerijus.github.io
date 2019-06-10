@@ -41,12 +41,12 @@
     </div>
 
     
-    <div class="domai">
-        <video id="pata_on" style="z-index: 2; opacity: 0;">
+    <div class="domai" id="PataDomas">
+        <video class="on" style="z-index: 2; opacity: 0;">
             <source src=2017_on.mp4 type="video/mp4">
         </video>
         
-        <video id="pata_rotate" muted style="z-index: 1">
+        <video class="rotate" muted style="z-index: 1">
             <source src="2017_rotate.mp4" type="video/mp4">
         </video> 
         <br>
@@ -59,7 +59,7 @@
             PataDomas apsireiškia trijų skirtingų energijų formomis, kiekviena skelbia išmintį savu kampu. Kuri apsireikš prieš jį atsisijojus tau? Tai priklauso nuo to, kokį žmogų tavyje PataDomas pamatys.</p>
             <div class="controls">
                 <label class="switch"> 
-                    <input type="checkbox" id="activate_pata"> 
+                    <input type="checkbox" class="activate"> 
                     <span class="switch_slider"></span>
                 </label>
                 <input type="button" id="more">
@@ -67,8 +67,15 @@
         </div>
     </div>
     
-    <div class="domai" style = "z-index: 0;">
-        <img id="kabukidomas" class="domai" src="2017_base.jpg"><br>
+    <div class="domai" style = "z-index: 0;" id="AsiDomas">
+        <video class="on" style="z-index: 2; opacity: 0;">
+            <source src=2017_on.mp4 type="video/mp4">
+        </video>
+        
+        <video class="rotate" muted style="z-index: 1">
+            <source src="2018_rotate.mp4" type="video/mp4">
+        </video> 
+        <br>
         <input id="view" type="range" class="slider"  min="0" max="1" value="1" step="0.1">
         
         <div class="info">
@@ -79,7 +86,7 @@
             AsiDomas gali būti aptiktas įvairaus jo egzistavimo fazių metu. Jis tausoja gerus dalykus, juos pertraukdamas gilaus poilsio ir apmąstymo būtimi.</p>
             <div class="controls">
                 <label class="switch"> 
-                    <input type="checkbox" id="activate"> 
+                    <input type="checkbox" class="activate"> 
                     <span class="switch_slider"></span>
                 </label>
                 <input type="button" id="more">
@@ -87,8 +94,15 @@
         </div>
     </div>
     
-    <div class="domai">
-        <img id="kabukidomas" class="domai" src="nowjapan_base.jpg"><br>
+    <div class="domai" id="KabukiDomas">
+        <video class="on" style="z-index: 2; opacity: 0;">
+            <source src=2017_on.mp4 type="video/mp4">
+        </video>
+        
+        <video class="rotate" muted style="z-index: 1">
+            <source src="nowjapan_rotate.mp4" type="video/mp4">
+        </video> 
+        <br>
         <input id="view" type="range" class="slider"  min="0" max="1" value="1" step="0.1">
         
         <div class="info">
@@ -107,8 +121,15 @@
         </div>
     </div>
     
-    <div class="domai">
-        <img id="kabukidomas" class="domai" src="first_base.jpg"><br>
+    <div class="domai" id="DumDomas">
+        <video class="on" style="z-index: 2; opacity: 0;">
+            <source src=2017_on.mp4 type="video/mp4">
+        </video>
+        
+        <video class="rotate" muted style="z-index: 1">
+            <source src="first_rotate.mp4" type="video/mp4">
+        </video> 
+        <br>
         <input id="view" type="range" class="slider"  min="0" max="1" value="1" step="0.1">
         
         <div class="info">        
@@ -132,27 +153,54 @@
     
 </body>
 <script>
-var slide = document.getElementById("view");
-var debug = document.getElementById("pavadinimas");
-var pata_rotate = document.getElementById("pata_rotate");
-var pata_on = document.getElementById("pata_on");
-var activate = document.getElementById("activate_pata");
+
+
+var pata_slide = document.getElementsByClassName("domai")[0].getElementsByClassName("slider")[0];
+var asi_slide = document.getElementsByClassName("domai")[1].getElementsByClassName("slider")[0];
+var kabuki_slide = document.getElementsByClassName("domai")[2].getElementsByClassName("slider")[0];
+var dom_slide = document.getElementsByClassName("domai")[3].getElementsByClassName("slider")[0];
+    
+var pata_rotate = document.getElementsByClassName("domai")[0].getElementsByClassName("rotate")[0];
+var asi_rotate = document.getElementsByClassName("domai")[1].getElementsByClassName("rotate")[0];
+var kabuki_rotate = document.getElementsByClassName("domai")[2].getElementsByClassName("rotate")[0];
+var dom_rotate = document.getElementsByClassName("domai")[3].getElementsByClassName("rotate")[0];
+    
+var pata_on = document.getElementsByClassName("domai")[0].getElementsByClassName("on")[0];
+var pata_activate = document.getElementsByClassName("domai")[0].getElementsByClassName("activate")[0];
     
 var intro_vid = document.getElementById("intro_vid");
 var intro = document.getElementById("intro");
 
-slide.oninput = function() {
+pata_slide.oninput = function() {
     pata_rotate.currentTime = map_range(this.value, 0, 1, 2, 0);
-    pata_on.currentTime = 0;
-    pata_on.style.opacity = 0;
-    activate.checked = false;
+    //pata_on.currentTime = 0;
+    //pata_on.style.opacity = 0;
+    //pata_activate.checked = false;
+}
+asi_slide.oninput = function() {
+    asi_rotate.currentTime = map_range(this.value, 0, 1, 2, 0);
+    //asi_on.currentTime = 0;
+    //asi_on.style.opacity = 0;
+    //asi_activate.checked = false;
+}
+kabuki_slide.oninput = function() {
+    kabuki_rotate.currentTime = map_range(this.value, 0, 1, 2, 0);
+    //kabuki_on.currentTime = 0;
+    //kabuki_on.style.opacity = 0;
+    //kabuki_activate.checked = false;
+}
+dom_slide.oninput = function() {
+    dom_rotate.currentTime = map_range(this.value, 0, 1, 2, 0);
+    //dom_on.currentTime = 0;
+    //dom_on.style.opacity = 0;
+    //dom_activate.checked = false;
 }
 
-activate.onclick = function() {
-    if(activate.checked){
+pata_activate.onclick = function() {
+    if(pata_activate.checked){
         pata_on.play();
         pata_on.style.opacity = 1;
-        slide.value = 1;  
+        pata_slide.value = 1;  
     }
     else{
         pata_rotate.currentTime = 0;
@@ -162,13 +210,13 @@ activate.onclick = function() {
 
 pata_on.addEventListener('ended',myHandler,false);
     function myHandler(e) {
-        activate.checked = false;
+        pata_activate.checked = false;
         pata_on.style.opacity = 0;
 }
 var callOnce = true;
 intro_vid.addEventListener('timeupdate',myHandler2,false);
     function myHandler2(e) {
-    if((intro_vid.currentTime > 3) && callOnce){
+    if((intro_vid.currentTime > 3)){
         intro.style.opacity = 0;
         callOnce = false;
     }
