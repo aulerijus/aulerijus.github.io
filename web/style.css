@@ -328,6 +328,7 @@ input[type=checkbox]:hover + .switch_slider:before{
     height: 2vw;
     opacity: 0.7;
 }
+button:focus {outline:0;}
 .info input[type=button]:hover{
     opacity: 1;
     filter: drop-shadow(0px 0px 7px rgba(125, 252, 247, 0.54));
