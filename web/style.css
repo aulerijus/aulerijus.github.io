@@ -17,13 +17,10 @@ html {
     width: 100vw;
     height: 100vh;
     transition: opacity 0.7s;
-    transition-delay: visibility 0.8s;
     z-index: 50;
-    visibility: hidden;
 }
 #intro video{
     width: 100vw;
-    visibility: hidden;
 }
 
 header {
@@ -172,7 +169,7 @@ main {
 .info{
     position: absolute;
     top: 12%;
-    left: 55%;
+    left: 52%;
     height: 65%;
     width: 25%;
     z-index: 5;

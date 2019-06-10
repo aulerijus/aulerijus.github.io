@@ -10,7 +10,7 @@
 <body>
     
 <div id="intro">
-   <video id="intro_vid" accesskey=""autoplay>
+   <video id="intro_vid" autoplay muted>
         <source src="logo%20intro%20web.mp4" type="video/mp4">
     </video> 
 </div>
@@ -200,7 +200,8 @@ pata_activate.onclick = function() {
     if(pata_activate.checked){
         pata_on.play();
         pata_on.style.opacity = 1;
-        pata_slide.value = 1;  
+        pata_slide.value = 1; 
+        pata_rotate.currentTime = 0;
     }
     else{
         pata_slide.value = 1; 
@@ -209,12 +210,25 @@ pata_activate.onclick = function() {
         pata_on.pause();
     }
 }
-
 pata_on.addEventListener('ended',myHandler,false);
     function myHandler(e) {
-        pata_activate.checked = false;
-        pata_on.style.opacity = 0;
+    pata_activate.checked = false;
+    pata_on.style.opacity = 0;
+        
 }
+  
+// intro shiit
+
+intro_vid.addEventListener('canplaythrough',start,false);
+    function start(e) {
+        intro_vid.play()
+} 
+    
+intro_vid.addEventListener('ended',introend,false);
+    function introend(e) {
+        intro.style.visibility = "hidden";
+        console.log("ended");
+}  
 var callOnce = true;
 intro_vid.addEventListener('timeupdate',myHandler2,false);
     function myHandler2(e) {
@@ -222,12 +236,13 @@ intro_vid.addEventListener('timeupdate',myHandler2,false);
         intro.style.opacity = 0;
         callOnce = false;
     }
-}
-intro_vid.addEventListener('ended',myHandler3,false);
-    function myHandler3(e) {
-    intro.style.visibility = "hidden";
+    console.log("almostend");
 }
 
+intro_vid.addEventListener('waiting',waiting,false);
+    function waiting(e) {
+    console.log("waiting");
+}
 
 function map_range(value, low1, high1, low2, high2) {
     return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
