@@ -112,6 +112,10 @@
         .nested_click:hover{
             filter: brightness(130%);
         }
+        #domdomimg:hover{
+            filter: brightness(130%);
+            cursor: pointer;
+        }
         .nested{
             width: 100%;
             margin-bottom: -1px;
@@ -268,9 +272,14 @@
     <a href="#slide5" class="slidejump">
         <img id="slide4" class="wide" src="websources/prezentacija/slide 4.svg"></a>
         
-    
-    <a href="#slide6" class="slidejump">
-    <img id="slide5" class="wide" src="websources/prezentacija/slide 5.svg"></a>
+    <div style="height: 56vw; margin-bottom: -1vw;">
+    <audio id="domdom">
+        <source src="websources/prezentacija/domdom.mp3" type="audio/mpeg">
+    </audio>
+    <a href="#slide6" class="slidejump"></a>
+    <img id="slide5" class="wide" src="websources/prezentacija/slide 5.svg">
+    <img id="domdomimg" src="websources/prezentacija/dom.png" style="display:inline; position: relative; bottom: 38vw; left:78.5vw; width: 11vw" onclick="document.getElementById('domdom').play();">
+    </div>
     <!-- nuostatos
     
     <div class="grid_split">

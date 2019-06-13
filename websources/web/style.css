@@ -35,6 +35,16 @@ header {
 header video{
     width: 100%;
 }
+header h1{
+    animation-duration: 5s;
+    animation-name: headerpulse;
+    animation-iteration-count: infinite;
+}
+header p{
+    animation-duration: 5s;
+    animation-name: headerpulse2;
+    animation-iteration-count: infinite;
+}
 body {
     font-size: 0;
     position: relative;
@@ -42,13 +52,43 @@ body {
     position: absolute;
     background-color: black;
 }
-@keyframes huerotate {
+@keyframes headerpulse {
     0% {
-        filter: hue-rotate(0deg);
-        animsation-timing-function: steps(120);
+        color: #d2fffa;
+        text-shadow: 0px 0px 0.5vw #00ff6c;
+    }
+    35% {
+        color: #cef2ff;
+        text-shadow: 0px 0px 0.7vw #00baff;
+    }
+    50% {
+        color: #c7c2e0;
+        text-shadow: 0px 0px 0.2vw #491586;
+    }
+    65% {
+        color: #cef2ff;
+        text-shadow: 0px 0px 0.7vw #00ceff;
     }
     100% {
-        filter: hue-rotate(360deg);
+        color: #d2fffa;
+        text-shadow: 0px 0px 0.5vw #00ff6c;
+    }
+}
+@keyframes headerpulse2 {
+    0% {
+        color: #d2fffa;
+    }
+    40% {
+        color: #cef2ff;
+    }
+    55% {
+        color: #c7c2e0;
+    }
+    70% {
+        color: #cef2ff;
+    }
+    100% {
+        color: #d2fffa;
     }
 }
 main {
@@ -95,7 +135,7 @@ main {
     left: 0;
     height: 40%;
     width: 100%;
-    top: 58%;
+    top: 60%;
     z-index: 10;
 }
 .short_about p{
@@ -106,7 +146,7 @@ main {
     width: 30%;
     top: 0%;
     font-family: Arcon;
-    opacity: 0.7;
+    opacity: 0.8;
 }
 .short_about h1 {
     text-align: center;
@@ -115,7 +155,7 @@ main {
     top: 0%;
     z-index: 6;
     font-family: Picadilly;
-    font-size: 2vw;
+    font-size: 1.8vw;
     opacity: 0.9;
 }
 .short_about video{
@@ -124,10 +164,9 @@ main {
     width: 100%;
 }
 #istorija{
-    margin-top: -8vw;
+    margin-top: -9vw;
     width: 100%;
-    height: 70vw;
-    background-color: #141414;
+    height: 54vw;
 }
 #istorija .photos{
     position: absolute;
@@ -154,13 +193,16 @@ main {
     line-height: 1.4;
 }
 #apie{
-    margin-top: -8vw;
+    background-color: rgb(5,5,5);
+
+}
+#pas_kom{
+    margin-top: -3vw;
     width: 100%;
     top: 0;
-    background-color: #141414;
     line-height: 1.5;
 }
-#apie h1 {
+#pas_kom h1 {
     position: relative;
     width: 100%;
     top: 0vw;
@@ -168,7 +210,7 @@ main {
     font-family: Picadilly;
     font-size: 2vw;
 }
-#apie p{
+#pas_kom p{
     position: relative;
     margin: auto;
     width: 30%;

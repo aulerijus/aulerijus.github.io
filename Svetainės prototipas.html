@@ -37,10 +37,6 @@
 
 
 <main>
-    <div id></div>
-    
-
-    
     <div class="domai" id="PataDomas">
         <video class="on" style="z-index: 2; opacity: 0;">
             <source src="websources/web/2017_on.mp4" type="video/mp4">
@@ -69,7 +65,7 @@
     
     <div class="domai" style = "z-index: 0;" id="AsiDomas">
         <video class="on" style="z-index: 2; opacity: 0;">
-            <source src="websources/web/2017_on.mp4" type="video/mp4">
+            <source src="websources/web/2018_on.mp4" type="video/mp4">
         </video>
         
         <video class="rotate" muted style="z-index: 1">
@@ -96,7 +92,7 @@
     
     <div class="domai" id="KabukiDomas">
         <video class="on" style="z-index: 2; opacity: 0;">
-            <source src=2017_on.mp4 type="video/mp4">
+            <source src="websources/web/kabuki_on.mp4" type="video/mp4">
         </video>
         
         <video class="rotate" muted style="z-index: 1">
@@ -107,13 +103,14 @@
         
         <div class="info">
             <h1 id="pavadinimas"> KabukiDomas</h1>
+            
             <h2> (Kartu su NowJapan)</h2> <img src="websources/web/nowjapan.svg" style="display: inline-block; relative; top: 5%; right: 10%;width: 16%; height: 16%;z-index: 8;">
-            <p> Šio Domo šaknys tęsiasi toli į rytus, iki pat Japonijos saloje slypinčių dramatiškų veikėjų.<br>
+            <p> Šio Domo šaknys tęsiasi toli į rytus, iki pat Japonijos saloje slypinčių veikėjų ir būtybių.<br>
             <br><br>
-            KabukiDomas - tai kiekvienam išdrįsusiam prieiti ir paprašyti žvilgsnio, kuris jo ateitį atskleis japoniška trieile poema.</p>
+            KabukiDomas kiekvienam išdrįsusiam prieiti ir paprašyti žvilgsnio į ateitį, atskleis ją japoniška trieile poema.</p>
             <div class="controls">
                 <label class="switch"> 
-                    <input type="checkbox" id="activate"> 
+                    <input type="checkbox" class="activate"> 
                     <span class="switch_slider"></span>
                 </label>
                 <input type="button" id="more">
@@ -123,7 +120,7 @@
     
     <div class="domai" id="DumDomas">
         <video class="on" style="z-index: 2; opacity: 0;">
-            <source src=2017_on.mp4 type="video/mp4">
+            <source src="websources/web/first_on.mp4" type="video/mp4">
         </video>
         
         <video class="rotate" muted style="z-index: 1">
@@ -141,14 +138,13 @@
             </p>
             <div class="controls">
                 <label class="switch"> 
-                    <input type="checkbox" id="activate"> 
+                    <input type="checkbox" class="activate"> 
                     <span class="switch_slider"></span>
                 </label>
                 <input type="button" id="more">
             </div>
         </div>
-    </div>
-        
+    </div>   
 </main>
     
 </body>
@@ -166,34 +162,45 @@ var kabuki_rotate = document.getElementsByClassName("domai")[2].getElementsByCla
 var dom_rotate = document.getElementsByClassName("domai")[3].getElementsByClassName("rotate")[0];
     
 var pata_on = document.getElementsByClassName("domai")[0].getElementsByClassName("on")[0];
+var asi_on = document.getElementsByClassName("domai")[1].getElementsByClassName("on")[0];
+var kabuki_on = document.getElementsByClassName("domai")[2].getElementsByClassName("on")[0];
+var dom_on = document.getElementsByClassName("domai")[3].getElementsByClassName("on")[0];
+    
 var pata_activate = document.getElementsByClassName("domai")[0].getElementsByClassName("activate")[0];
+var asi_activate = document.getElementsByClassName("domai")[1].getElementsByClassName("activate")[0];
+var kabuki_activate = document.getElementsByClassName("domai")[2].getElementsByClassName("activate")[0];
+var dom_activate = document.getElementsByClassName("domai")[3].getElementsByClassName("activate")[0];
     
 var intro_vid = document.getElementById("intro_vid");
 var intro = document.getElementById("intro");
 
 pata_slide.oninput = function() {
     pata_rotate.currentTime = map_range(this.value, 0, 1, 2, 0);
+    pata_on.pause();
     pata_on.currentTime = 0;
     pata_on.style.opacity = 0;
     pata_activate.checked = false;
 }
 asi_slide.oninput = function() {
     asi_rotate.currentTime = map_range(this.value, 0, 1, 2, 0);
-    //asi_on.currentTime = 0;
-    //asi_on.style.opacity = 0;
-    //asi_activate.checked = false;
+    asi_on.pause();
+    asi_on.currentTime = 0;
+    asi_on.style.opacity = 0;
+    asi_activate.checked = false;
 }
 kabuki_slide.oninput = function() {
     kabuki_rotate.currentTime = map_range(this.value, 0, 1, 2, 0);
-    //kabuki_on.currentTime = 0;
-    //kabuki_on.style.opacity = 0;
-    //kabuki_activate.checked = false;
+    kabuki_on.pause();
+    kabuki_on.currentTime = 0;
+    kabuki_on.style.opacity = 0;
+    kabuki_activate.checked = false;
 }
 dom_slide.oninput = function() {
     dom_rotate.currentTime = map_range(this.value, 0, 1, 2, 0);
-    //dom_on.currentTime = 0;
-    //dom_on.style.opacity = 0;
-    //dom_activate.checked = false;
+    dom_on.pause();
+    dom_on.currentTime = 0;
+    dom_on.style.opacity = 0;
+    dom_activate.checked = false;
 }
 
 pata_activate.onclick = function() {
@@ -210,10 +217,74 @@ pata_activate.onclick = function() {
         pata_on.pause();
     }
 }
-pata_on.addEventListener('ended',myHandler,false);
-    function myHandler(e) {
+
+asi_activate.onclick = function() {
+    if(asi_activate.checked){
+        asi_on.play();
+        asi_on.style.opacity = 1;
+        asi_slide.value = 1; 
+        asi_rotate.currentTime = 0;
+    }
+    else{
+        asi_slide.value = 1; 
+        asi_rotate.currentTime = 0;
+        asi_on.style.opacity = 0;
+        asi_on.pause();
+    }
+}
+
+kabuki_activate.onclick = function() {
+    if(kabuki_activate.checked){
+        kabuki_on.play();
+        kabuki_on.style.opacity = 1;
+        kabuki_slide.value = 1; 
+        kabuki_rotate.currentTime = 0;
+    }
+    else{
+        kabuki_slide.value = 1; 
+        kabuki_rotate.currentTime = 0;
+        kabuki_on.style.opacity = 0;
+        kabuki_on.pause();
+    }
+}
+
+dom_activate.onclick = function() {
+    if(dom_activate.checked){
+        dom_on.play();
+        dom_on.style.opacity = 1;
+        dom_slide.value = 1; 
+        dom_rotate.currentTime = 0;
+    }
+    else{
+        dom_slide.value = 1; 
+        dom_rotate.currentTime = 0;
+        dom_on.style.opacity = 0;
+        dom_on.pause();
+    }
+}
+
+pata_on.addEventListener('ended',pataend,false);
+    function pataend(e) {
     pata_activate.checked = false;
     pata_on.style.opacity = 0;
+        
+}
+asi_on.addEventListener('ended',asiend,false);
+    function asiend(e) {
+    asi_activate.checked = false;
+    asi_on.style.opacity = 0;
+        
+}
+kabuki_on.addEventListener('ended',kabukiend,false);
+    function kabukiend(e) {
+    kabuki_activate.checked = false;
+    kabuki_on.style.opacity = 0;
+        
+}
+dom_on.addEventListener('ended',domend,false);
+    function domend(e) {
+    dom_activate.checked = false;
+    dom_on.style.opacity = 0;
         
 }
   
