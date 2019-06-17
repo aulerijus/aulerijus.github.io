@@ -7,12 +7,16 @@
     <link href="websources/web/style.css" rel="stylesheet" type="text/css">
     
 </head>
-<body>
-    
+<body> 
 <div id="intro">
    <video id="intro_vid" autoplay muted>
         <source src="websources/web/logo%20intro%20web.mp4" type="video/mp4">
     </video> 
+</div>
+    
+<div id="corner">
+    <h2>Skirtas išbandyti viziją</h2><br><br>
+    <h1>Laikinas<br> prototipas</h1>
 </div>
     
 <header>
@@ -295,17 +299,16 @@ intro_vid.addEventListener('canplaythrough',start,false);
         intro_vid.play()
 } 
     
-intro_vid.addEventListener('ended',introend,false);
-    function introend(e) {
-        intro.style.visibility = "hidden";
-        console.log("ended");
-}  
+
 var callOnce = true;
 intro_vid.addEventListener('timeupdate',myHandler2,false);
     function myHandler2(e) {
-    if((intro_vid.currentTime > 3)){
+    if((intro_vid.currentTime > 2)){
         intro.style.opacity = 0;
         callOnce = false;
+    }
+    if((intro_vid.currentTime > 2.2)){
+        intro.style.visibility = "hidden";
     }
     console.log("almostend");
 }

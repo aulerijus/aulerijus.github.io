@@ -24,13 +24,38 @@ html {
     width: 100vw;
     top: -12.6vw;
 }
-
+#corner h1{
+    position: relative;
+    bottom: -18.2vw;
+}
+#corner h2{
+    position: relative;
+    bottom: -19vw;
+}
+#corner{
+    background-color: white;
+    text-align: center;
+    font-family: Arcon;
+    transform:  rotate(45deg);
+    right: -18.2vw;
+    top: -18.2vw;
+    font-size: 0.5vw;
+    width: 25vw;
+    height: 25vw;
+    color: red;
+    position: fixed;
+    z-index: 30;
+    transition: 0.5s;
+}
+#corner:hover{
+    transform: translate(-3.3vw, 3.3vw) rotate(45deg);
+}
 header {
     text-align: center;
     position: relative;
     z-index: 10;
     width: 100vw;
-    color: white;
+    background-color: black;
 }
 header video{
     width: 100%;
@@ -134,7 +159,8 @@ main {
     font-size: 1.1vw; 
     left: 0;
     height: 40%;
-    width: 100%;
+    width: 50%;
+    left: 25%;
     top: 60%;
     z-index: 10;
 }
@@ -143,7 +169,7 @@ main {
     position: relative;
     margin: auto;
     height: 50%;
-    width: 30%;
+    width: 60%;
     top: 0%;
     font-family: Arcon;
     opacity: 0.8;
@@ -206,7 +232,7 @@ main {
     position: relative;
     width: 100%;
     top: 0vw;
-    left: 35%;
+    left: 36%;
     font-family: Picadilly;
     font-size: 2vw;
 }
@@ -215,7 +241,7 @@ main {
     margin: auto;
     width: 30%;
     top: 0vw;
-    left: 0%;
+    left: 1%;
     font-family: Arcon;
     opacity: 1;
 }
